@@ -13,7 +13,10 @@ class Pasta:
       
       
     def tratamento_paste(self, files):
-        
+        """
+        análisa os arquivos da pasta Download e retorna um caminho de arquivo tratado como pasta
+        Ex: c:/user/Downloads/teste.txt retorna c:/user/Downloads/_txt 
+        """
         sets_file = files
         sets = set({})
         
@@ -30,12 +33,19 @@ class Pasta:
                   
         
     def constructor_path(self):
+        """
+        Recebe valor das pastas tratadas já e as cria atráves do mkadir 
+        """
         paste_no_repeate = self.path_tratado
         for pastas in paste_no_repeate:
             pasta = Path(pastas)
             pasta.mkdir(parents=True, exist_ok=True) 
          
     def mover_arquivos(self):
+        """
+        pega os arquivos da pasta Download e os encaminha para a respectiva pasta que é pega pela função de tratamento da Path
+        se o arquivo já exisitir ele renomeia com um _copy, terá tratamentos futuros melhores 
+        """
         sets_file = self.path.glob('*')
         for file in sets_file:
             
