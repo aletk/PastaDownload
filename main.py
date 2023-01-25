@@ -52,9 +52,14 @@ class Pasta:
             if Path(file).is_file() == True:
                 for arquivo in self.tratamento_paste([file]):
                     format = arquivo + f'/{file.name}'
-                    t = Path(format)
-                    if t.exists() == True:
-                        file = file.rename(self.path / f'{file.name[0:-len(file.suffix)]}_copy{file.suffix}')
+                    pasta = Path(format)
+                    if Path(arquivo).exists() == True:
+                        if pasta.exists() == True:
+                            file = file.rename(self.path / f'{file.name[0:-len(file.suffix)]}_copy{file.suffix}')
+                    else:
+                        if pasta.exists() == True:
+                            file = file.rename(self.path / f'{file.name[0:-len(file.suffix)]}_copy{file.suffix}')
+                        self.constructor_path()
                     shutil.move(file, arquivo)
                     
                     
