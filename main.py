@@ -57,8 +57,6 @@ class Pasta:
                         if pasta.exists() == True:
                             file = file.rename(self.path / f'{file.name[0:-len(file.suffix)]}_copy{file.suffix}')
                     else:
-                        if pasta.exists() == True:
-                            file = file.rename(self.path / f'{file.name[0:-len(file.suffix)]}_copy{file.suffix}')
                         self.constructor_path()
                     shutil.move(file, arquivo)
                     
