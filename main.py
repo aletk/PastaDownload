@@ -5,10 +5,10 @@ import re
 
 class Pasta:
 
-    teste = Path.home() / 'Downloads'
+    teste = Path.home() / 'Downloads'  
 
     def __init__(self) -> None:
-        self.path = Pasta.teste
+        self.path = Pasta.teste      
         self.path_tratado = self.tratamento_paste(self.path.glob('*'))
       
       
